@@ -8,16 +8,20 @@ Version 2.0.1 of the AAS RDF Serialization
 
 
 ### Added
-
 * `http://admin-shell.io/aas/2/0/Key/idType` propert for `aas:Key`
 * `PolicyDecisionPoint/externalPolicyDecisionPoints`
 * `http://admin-shell.io/aas/2/0/Property/value`
 * `http://admin-shell.io/aas/2/0/ReferenceElement/value`
 * `http://admin-shell.io/aas/2/0/SubmodelElementCollection/value`
+* `<http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360/definition>`
+* `<http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/definition>`
+* `aas:PolicyDecisionPointShape`
+* `iec61360:INTEGER_COUNT`
+* `iec61360:INTEGER_MEASURE`
+* `iec61360:INTEGER_CURRENCY`
 
 
 ### Changed
-
 * Namespace:  from `aas: <https://www.admin-shell.io/aas/2/0/rdf#>` to `aas: <http://admin-shell.io/aas/2/0/>`
 * reorganized all attributes to their classes with the pattern NAMESPACE '/' CLASS '/' ATTRIBUTE
 * `rdfs:label "some label"@en` to `rdfs:label "some label"^^xsd:string` as the label is not dependent on the English language.
@@ -33,13 +37,16 @@ Version 2.0.1 of the AAS RDF Serialization
 * `aas:relationsshipFirst` to `http://admin-shell.io/aas/2/0/RelationshipElement/first`
 * `aas:relationsshipSecond` to `http://admin-shell.io/aas/2/0/RelationshipElement/second`
 * `aas:propertyCategory` to `http://admin-shell.io/aas/2/0/Property/category`
+* `aas:objectPermission` to `<http://admin-shell.io/aas/2/0/PermissionsPerObject/permission>`
+* `aas:RangeShape` removed cardinality restrictions
+* `AnnotatedRelationshipElement/annotation` added `rdfs:range aas:DataElement` and `AnnotatedRelationshipElementShape` replaced `sh:class aas:DataElement ;` with `sh:class aas:DataElement ;`
 
 
 ### Removed
-
 * `owl:disjointWith` annotations as their added value is limited and the potential to create conflicts is high.
 * `aas:describes` is not in the AAS Meta Model anymore.
 * Class `aas:Category` does not exist in the AAS Meta Model.
 * `aas:sourceOfDefinition` and `aas:definition`
 * `aas:inAccordanceWith`
 * `aas:embeddedDataSpecification`
+* `aas:DataSpecification` and `aas:DataSpecificationShape`

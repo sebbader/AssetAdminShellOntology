@@ -4,7 +4,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix aas: <https://admin-shell.io/aas/2/0/> .
+@prefix aas: <http://admin-shell.io/aas/2/0/> .
 
 
 # author: Sebastian Bader (sebastian.bader@iais.fraunhofer.de)
@@ -17,15 +17,18 @@
 <#AasShape>
     a sh:NodeShape ;
     sh:targetClass aas:AssetAdministrationShell ;
-    sh:property [
-      sh:path rdf:type ;
-      sh:minCount 1 ; # this statement is redundant as each instance of type ids:Rule has at least one class relation (type).
-	  #sh:message ""@en ;
-    ] ;
 	sh:constraint [
 		sh:nodeKind sh:URI ;
 		sh:message "Each AAS object must be a URI."@en ;
 	] ;
+    sh:property [
+      sh:path <http://admin-shell.io/aas/2/0/AssetAdministrationShell/asset> ;
+      sh:class aas:Asset ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:severity sh:Violation ;
+      sh:message "Each AAS must be related to exactly one Asset through the asset relation."@en ;
+    ] ;
     sh:property [
       sh:path aas:derivedFrom ;
       sh:class aas:AssetAdministrationShell ;
@@ -41,14 +44,6 @@
       sh:maxCount 1 ;
       sh:severity sh:Violation ;
       sh:message "Each AAS must be related to exactly one Security element through the security relation."@en ;
-    ] ;
-    sh:property [
-      sh:path aas:asset ;
-      sh:class aas:Asset ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:severity sh:Violation ;
-      sh:message "Each AAS must be related to exactly one Asset through the asset relation."@en ;
     ] ;
     # sh:property [
     #   sh:path aas:hasSubmodel ;

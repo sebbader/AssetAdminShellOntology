@@ -15,7 +15,7 @@
 <http://admin-shell.io/aas/2/0/> rdf:type owl:Ontology ;
     vann:preferredNamespaceUri "http://admin-shell.io/aas/2/0/"^^xsd:anyURI ;
     owl:versionInfo 2.0 ;
-    rdfs:comment "An Ontology to represents the data model for the Asset Administration Shell accoridng to the specification 'Details of the Asset Administration Shell - Part 1 - Version 2.0'."@en ;
+    rdfs:comment "An Ontology to represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 2.0'."@en ;
     skos:prefLabel "aas"^^xsd:string ;
     vann:preferredNamespacePrefix "aas"^^xsd:string ;
     rdfs:isDefinedBy <http://admin-shell.io/aas/2/0/> ;
@@ -184,6 +184,7 @@ aas:AnnotatedRelationshipElement rdf:type owl:Class ;
     rdfs:comment "Annotations that hold for the relationships between the two elements."@en ;
     rdfs:label "has annotation"^^xsd:string ;
     rdfs:domain aas:AnnotatedRelationshipElement ;
+    rdfs:range aas:DataElement ;
 .
 
 ###  http://admin-shell.io/aas/2/0/Asset
@@ -294,8 +295,6 @@ aas:AssetKind rdf:type owl:Class ;
 <http://admin-shell.io/aas/2/0/AssetKind/INSTANCE> rdf:type  aas:AssetKind ;
     rdfs:comment "Concrete, clearly identifiable component of a certain type."@en ;
     rdfs:label "Asset Instance"^^xsd:string ;
-    owl:differentFrom aas:INSTANCE ;
-    owl:differentFrom <http://admin-shell.io/aas/2/0/AssetKind/TYPE> ;
 .
 
 ###  http://admin-shell.io/aas/2/0/AssetKind/TYPE
@@ -429,6 +428,15 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
 .
 
+###  http://admin-shell.io/aas/2/0/ConceptDescription/content
+<http://admin-shell.io/aas/2/0/ConceptDescription/content> rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    rdfs:comment "Link from a ConceptDescription to its explaining DataSpecificationContent."@en ;
+    rdfs:label "has content"^^xsd:string ;
+    rdfs:domain aas:ConceptDescription ;
+    rdfs:range aas:DataSpecificationContent ;
+.
+
 ###  http://admin-shell.io/aas/2/0/ConceptDescription/isCaseOf
 <http://admin-shell.io/aas/2/0/ConceptDescription/isCaseOf> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf dcterms:identifier ;
@@ -470,16 +478,9 @@ aas:DataElement rdf:type owl:Class ;
     rdfs:label "Data Element"^^xsd:string ;
 .
 
-###  http://admin-shell.io/aas/2/0/DataSpecification
-aas:DataSpecification rdf:type owl:Class ;
-    rdfs:subClassOf aas:Identifiable ;
-    dash:abstract true ;
-    rdfs:comment "Element that can have data specification templates. A template defines the additional attributes an element may or shall have."@en ;
-    rdfs:label "DataSpecification"^^xsd:string ;
-.
-
 ###  http://admin-shell.io/aas/2/0/DataSpecificationContent
 aas:DataSpecificationContent rdf:type owl:Class ;
+    dash:abstract true ;
     rdfs:label "Data Specification Content"^^xsd:string ;
     rdfs:comment "DataSpecificationContent contains the additional attributes to be added to the element instance that references the data specification template and meta information about the template itself."@en ;
     dash:abstract true ;
@@ -497,6 +498,13 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has datatype"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:DataTypeIEC61360 ;
+.
+
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360/definition
+<http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360/definition> rdf:type owl:ObjectProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range rdf:Literal ;
 .
 
 ###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360/preferredName
@@ -577,6 +585,13 @@ phys_unit:conversionFactor rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
 .
 
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/definition
+phys_unit:definition rdf:type owl:DatatypeProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain phys_unit: ;
+    rdfs:range rdf:langString ;
+.
+
 ###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/dinNotation
 phys_unit:dinNotation rdf:type owl:DatatypeProperty ;
     rdfs:label "has DIN notation"^^xsd:string ;
@@ -606,14 +621,14 @@ phys_unit:nistName rdf:type owl:DatatypeProperty ;
 .
 
 ###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/siName
-<phys_unit:siName> rdf:type owl:DatatypeProperty ;
+phys_unit:siName rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI name"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
 .
 
 ###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/siNotation
-<phys_unit:siNotation> rdf:type owl:DatatypeProperty ;
+phys_unit:siNotation rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI notation"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
@@ -1205,8 +1220,8 @@ aas:PermissionsPerObject rdf:type owl:Class ;
     rdfs:range aas:Referable ;
 .
 
-###  http://admin-shell.io/aas/2/0/PermissionsPerObject/objectPermission
-<http://admin-shell.io/aas/2/0/PermissionsPerObject/objectPermission> rdf:type owl:ObjectProperty ;
+###  http://admin-shell.io/aas/2/0/PermissionsPerObject/permission
+<http://admin-shell.io/aas/2/0/PermissionsPerObject/permission> rdf:type owl:ObjectProperty ;
     rdfs:comment "Permissions assigned to the object. The permissions hold for all subjects as specified in the access permission rule."@en ;
     rdfs:label "has object permission"^^xsd:string ;
     rdfs:domain aas:PermissionsPerObject ;
@@ -1756,6 +1771,9 @@ iec61360:DataTypeIEC61360 rdf:type owl:Class ;
         iec61360:DATE
         iec61360:STRING
         iec61360:STRING_TRANSLATABLE
+        iec61360:INTEGER_MEASURE
+        iec61360:INTEGER_COUNT
+        iec61360:INTEGER_CURRENCY
         iec61360:REAL_MEASURE
         iec61360:REAL_COUNT
         iec61360:REAL_CURRENCY
@@ -1778,8 +1796,20 @@ iec61360:BOOLEAN rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "boolean according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:boolean ;
 .
-###  http://admin-shell.io/aas/2/0/REAL_CURRENCY
-iec61360:REAL_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
+###  http://admin-shell.io/aas/2/0/INTEGER_CURRENCY
+iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer currency according to IEC61360"^^xsd:string ;
+.
+###  http://admin-shell.io/aas/2/0/INTEGER_COUNT
+iec61360:INTEGER_COUNT rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer count according to IEC61360"^^xsd:string ;
+.
+###  http://admin-shell.io/aas/2/0/INTEGER_MEASURE
+iec61360:INTEGER_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer measure according to IEC61360"^^xsd:string ;
+.
+###  http://admin-shell.io/aas/2/0/INTEGER_CURRENCY
+iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "real currency according to IEC61360"^^xsd:string ;
 .
 ###  http://admin-shell.io/aas/2/0/REAL_COUNT
