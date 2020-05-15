@@ -571,7 +571,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Document"@en ; 
 		dataspec_iec:preferredName "Dokument"@de ; 
 		dataspec_iec:shortName "Document"@en ;
@@ -598,7 +598,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Document Id"@en ; 
 		dataspec_iec:preferredName "Dokumenten ID"@de ; 
 		dataspec_iec:shortName "DocumentId"@en ; 
@@ -625,7 +625,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Document Class Id"@en ;
 		dataspec_iec:preferredName "Dokumentenklassen ID"@de ;
 		dataspec_iec:shortName "DocumentClassId"@en ; 
@@ -652,7 +652,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Document Class Name"@en ;
 		dataspec_iec:shortName "DocumentClassName"@en ;
         dataspec_iec:datatype "STRING_TRANSLATABLE"^^xsd:string ;
@@ -678,7 +678,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Classification System"@en ;
         dataspec_iec:preferredName "Klassifikationssystem"@de ;
 		dataspec_iec:shortName "DocumentClassificationSystem"@en ;
@@ -705,7 +705,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "gebräuchliche Bezeichnung für Organisation"@de ;
         dataspec_iec:preferredName "organization name"@en ;
 		dataspec_iec:shortName "OrganizationName"@en ;
@@ -732,7 +732,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "offizieller Name der Organisation"@de ;
         dataspec_iec:preferredName "official name of the organization"@en ;
 		dataspec_iec:shortName "OrganizationOfficialName"@en ;
@@ -769,7 +769,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Document Version"@en ; 
         dataspec_iec:preferredName "Version des Dokuments"@de ;
 		dataspec_iec:shortName "DocumentVersion"@en ; 
@@ -796,7 +796,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Sprache"@de ;
         dataspec_iec:preferredName "Language"@en ;
 		dataspec_iec:shortName "Language"@en ;
@@ -823,7 +823,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Titel"@de ;
         dataspec_iec:preferredName "Title"@en ;
 		dataspec_iec:shortName "Title"@en ; 
@@ -849,7 +849,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Set Date"@en ;
 		dataspec_iec:shortName "SetDate"@en ;
         dataspec_iec:datatype "DATE"^^xsd:string ;
@@ -874,7 +874,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "DocumentVersionId"@en ; 
 		dataspec_iec:shortName "DocumentVersionId"@en ;
         dataspec_iec:datatype "STRING"^^xsd:string ;
@@ -899,7 +899,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
 		dataspec_iec:preferredName "Digital File"@en ;
 		dataspec_iec:shortName "DigitalFile"@en ;
         dataspec_iec:datatype "FILE"^^xsd:string ;
@@ -921,7 +921,7 @@
         <http://admin-shell.io/aas/2/0/AdministrativeInformation/revision> ""^^xsd:string ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "max. Drehzahl"@de ;
         dataspec_iec:preferredName "Max. rotation speed"@en ;
         dataspec_iec:unit "1/min"^^xsd:string ;
@@ -952,7 +952,7 @@
         <http://admin-shell.io/aas/2/0/Identifier/idType> <http://admin-shell.io/aas/2/0/IdentifierType/IRDI> ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Max. torque"@en ;
 		dataspec_iec:preferredName "max. Drehmoment"@de ; 
         dataspec_iec:unit "Nm"^^xsd:string ;
@@ -991,7 +991,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Aktuelle Drehzahl"@de ;
         dataspec_iec:preferredName "Actual rotation speed"@en ;
 		dataspec_iec:shortName "RotationSpeed"@en ;
@@ -1031,7 +1031,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Drehmoment"@de ;
         dataspec_iec:preferredName "Torque"@en ;
         dataspec_iec:shortName "Torque"@en ;
@@ -1063,7 +1063,7 @@
         <http://admin-shell.io/aas/2/0/Identifier/idType> <http://admin-shell.io/aas/2/0/IdentifierType/IRDI> ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "Art der Kühlung"@de ;
         dataspec_iec:preferredName "Cooling type"@en ;
         dataspec_iec:datatype "STRING"^^xsd:string ;
@@ -1093,7 +1093,7 @@
         ] ;
     ] ;
     <http://admin-shell.io/aas/2/0/ConceptDescription/content> [
-        rdf:type aas:DataSpecificationIEC61360 ;
+        rdf:type <http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DataSpecificationIEC61360> ;
         dataspec_iec:preferredName "offener Kreis, Fremdkühlung"@de ;
         dataspec_iec:preferredName "open circuit, external cooling"@en ;
         dataspec_iec:datatype "STRING"^^xsd:string ;

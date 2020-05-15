@@ -15,7 +15,7 @@
 <http://admin-shell.io/aas/2/0/> rdf:type owl:Ontology ;
     vann:preferredNamespaceUri "http://admin-shell.io/aas/2/0/"^^xsd:anyURI ;
     owl:versionInfo 2.0 ;
-    rdfs:comment "An Ontology to represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 2.0'."@en ;
+    rdfs:comment "This ontology represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 2.0'."@en ;
     skos:prefLabel "aas"^^xsd:string ;
     vann:preferredNamespacePrefix "aas"^^xsd:string ;
     rdfs:isDefinedBy <http://admin-shell.io/aas/2/0/> ;
@@ -166,8 +166,9 @@ aas:AdministrativeInformation rdf:type owl:Class ;
 ###  http://admin-shell.io/aas/2/0/AdministrativeInformation/revision
 <http://admin-shell.io/aas/2/0/AdministrativeInformation/revision> rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf dcterms:hasVersion ;
-    rdfs:comment "Revision of the element. Constraint AASd-005: A revision requires a version. This means, if there is no version there is no revision neither."@en ;
-    rdfs:label "has revision"@en ;
+    rdfs:comment "Revision of the element."@en ;
+    skos:note "Constraint AASd-005: A revision requires a version. This means, if there is no version there is no revision neither."@en ;
+    rdfs:label "has revision"^^xsd:string ;
     rdfs:domain aas:AdministrativeInformation ;
     rdfs:range xsd:string ;
 .
@@ -292,13 +293,13 @@ aas:AssetKind rdf:type owl:Class ;
 .
 
 ###  http://admin-shell.io/aas/2/0/AssetKind/INSTANCE
-<http://admin-shell.io/aas/2/0/AssetKind/INSTANCE> rdf:type  aas:AssetKind ;
+<http://admin-shell.io/aas/2/0/AssetKind/INSTANCE> rdf:type aas:AssetKind ;
     rdfs:comment "Concrete, clearly identifiable component of a certain type."@en ;
     rdfs:label "Asset Instance"^^xsd:string ;
 .
 
 ###  http://admin-shell.io/aas/2/0/AssetKind/TYPE
-<http://admin-shell.io/aas/2/0/AssetKind/TYPE> rdf:type  aas:AssetKind ;
+<http://admin-shell.io/aas/2/0/AssetKind/TYPE> rdf:type aas:AssetKind ;
     rdfs:comment "hardware or software element which specifies the common attributes shared by all instances of the type."@en ;
     rdfs:label "Asset Type"^^xsd:string ;
 .
@@ -366,7 +367,7 @@ aas:BlobCertificate rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  http://admin-shell.io/aas/2/0/lastCertificate
+###  http://admin-shell.io/aas/2/0/BlobCertificate/lastCertificate
 <http://admin-shell.io/aas/2/0/BlobCertificate/lastCertificate> rdf:type owl:DatatypeProperty ;
     rdfs:comment "Denotes whether this certificate is the certificated that fast added last."@en ;
     rdfs:label "is last certificate"^^xsd:string ;
@@ -383,9 +384,13 @@ aas:Capability rdf:type owl:Class ;
 
 ###  http://admin-shell.io/aas/2/0/Category
 aas:Category rdf:type owl:Class ;
-    rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A enumeration for data elements except for files and blobs."@en ;
     rdfs:label "Category"^^xsd:string ;
+    owl:oneOf (
+        <http://admin-shell.io/aas/2/0/Category/PARAMETER>
+        <http://admin-shell.io/aas/2/0/Category/VARIABLE>
+        <http://admin-shell.io/aas/2/0/Category/CONSTANT>
+    ) ;
 .
 
 ###  http://admin-shell.io/aas/2/0/Category/CONSTANT
@@ -466,7 +471,7 @@ aas:ConceptDictionary rdf:type owl:Class ;
 aas:Constraint rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "A constraint is used to further qualify an element."@en ;
-    rdfs:label "Constraint"@en ;
+    rdfs:label "Constraint"^^xsd:string ;
     skos:prefLabel "Constraint"@en ;
 .
 
@@ -575,7 +580,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 phys_unit: rdf:type owl:Class ;
     rdfs:subClassOf aas:DataSpecificationContent ;
     rdfs:label "Data Specification Physical Unit"^^xsd:string ;
-    rdfs:comment "Data Specification Tempate for Physical Units."@en ;
+    rdfs:comment "Data Specification Template for Physical Units."@en ;
 .
 
 ###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/2/0/conversionFactor
@@ -716,6 +721,7 @@ aas:EntityType rdf:type owl:Class ;
 ###  http://admin-shell.io/aas/2/0/Event
 aas:Event rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
+    dash:abstract true ;
     rdfs:label "Event"^^xsd:string ;
     rdfs:comment "An event."@en ;
 .
@@ -791,6 +797,7 @@ aas:HasDataSpecification rdf:type owl:Class ;
 
 ###  http://admin-shell.io/aas/2/0/HasKind
 aas:HasKind rdf:type owl:Class ;
+    dash:abstract true ;
     rdfs:comment "An element with a kind is an element that can either represent a type or an instance. Default for an element is that it is representing an instance."@en ;
     rdfs:label "Has Kind"^^xsd:string ;
 .
@@ -869,11 +876,11 @@ aas:IdentifiableElements rdf:type owl:Class ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
 .
 ###  http://admin-shell.io/aas/2/0/IdentifiableElements/CONCEPT_DESCRIPTION_
-<http://admin-shell.io/aas/2/0/IdentifiableElements/CONCEPT_DESCRIPTION> rdf:type aas:IdentifiableElement ;
+<http://admin-shell.io/aas/2/0/IdentifiableElements/CONCEPT_DESCRIPTION> rdf:type aas:IdentifiableElements ;
     rdfs:label "Concept Description"^^xsd:string ;
 .
 ###  http://admin-shell.io/aas/2/0/IdentifiableElements/SUBMODEL
-<http://admin-shell.io/aas/2/0/IdentifiableElements/SUBMODEL> rdf:type aas:IdentifiableElement ;
+<http://admin-shell.io/aas/2/0/IdentifiableElements/SUBMODEL> rdf:type aas:IdentifiableElements ;
     rdfs:label "Submodel"^^xsd:string ;
 .
 
@@ -944,11 +951,11 @@ aas:Key rdf:type owl:Class ;
 .
 
 ###  http://admin-shell.io/aas/2/0/Key/idType
-<http://admin-shell.io/aas/2/0/Identifier/idType> rdf:type owl:ObjectProperty ;
+<http://admin-shell.io/aas/2/0/Key/idType> rdf:type owl:ObjectProperty ;
     rdfs:comment "Type of the key value. In case of idType = idShort local shall be true. In case type=GlobalReference idType shall not be IdShort."@en ;
     rdfs:domain aas:Key ;
     rdfs:range aas:KeyType ;
-    rdfs:label "has identifier type"^^xsd:string ;
+    rdfs:label "has key type"^^xsd:string ;
 .
 
 ###  http://admin-shell.io/aas/2/0/Key/local
@@ -1265,21 +1272,21 @@ aas:PolicyDecisionPoint rdf:type owl:Class ;
     rdfs:label "Policy Decision Point"^^xsd:string ;
 .
 
-###  http://admin-shell.io/aas/2/0/PolicyDecisionPoint/externalPolicyDecisionPoint
-<http://admin-shell.io/aas/2/0/PolicyDecisionPoint/externalPolicyDecisionPoint> rdf:type owl:DatatypeProperty ;
+###  http://admin-shell.io/aas/2/0/PolicyDecisionPoint/externalPolicyDecisionPoints
+<http://admin-shell.io/aas/2/0/PolicyDecisionPoint/externalPolicyDecisionPoints> rdf:type owl:DatatypeProperty ;
     rdfs:comment "If externalPolicyDecisionPoints True then Endpoints to external available decision points taking into consideration for access control for the AAS need to be configured."@en ;
     rdfs:label "is external policy decision point defined"^^xsd:string ;
     rdfs:domain aas:PolicyDecisionPoint ;
     rdfs:range xsd:boolean ;
 .
 
-###  http://admin-shell.io/aas/2/0/PolicyEnforcementPoint
-aas:PolicyEnforcementPoint rdf:type owl:Class ;
+###  http://admin-shell.io/aas/2/0/PolicyEnforcementPoints
+aas:PolicyEnforcementPoints rdf:type owl:Class ;
     rdfs:comment "Defines the security policy enforcement points (PEP)."@en ;
     rdfs:label "Policy Enforcement Point"^^xsd:string ;
 .
 
-###  http://admin-shell.io/aas/2/0/PolicyEnforcementPoint/externalPolicyEnforcementPoint
+###  http://admin-shell.io/aas/2/0/PolicyEnforcementPoints/externalPolicyEnforcementPoint
 <http://admin-shell.io/aas/2/0/PolicyEnforcementPoint/externalPolicyEnforcementPoint> rdf:type owl:DatatypeProperty ;
     rdfs:comment "If externalPolicyEnforcementPoint True then an Endpoint to external available enforcement point taking needs to be configured for the AAS."@en ;
     rdfs:label "is external policy enforcement point defined"^^xsd:string ;
@@ -1293,9 +1300,9 @@ aas:PolicyInformationPoints rdf:type owl:Class ;
     rdfs:label "Policy Information Points"^^xsd:string ;
 .
 
-###  http://admin-shell.io/aas/2/0/PolicyInformationPoints/externalInformationPoint
-<http://admin-shell.io/aas/2/0/PolicyInformationPoints/externalInformationPoint> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Endpoints to external available information points taking into consideration for access control for the AAS."@en ;
+###  http://admin-shell.io/aas/2/0/PolicyInformationPoints/externalInformationPoints
+<http://admin-shell.io/aas/2/0/PolicyInformationPoints/externalInformationPoints> rdf:type owl:ObjectProperty ;
+    rdfs:comment "If externalInformationPoints True then at least one Endpoint to external available information needs to be configured for the AAS."@en ;
     rdfs:label "has external information point"^^xsd:string ;
     rdfs:domain aas:PolicyInformationPoints ;
     rdfs:range aas:Endpoint ;
@@ -1453,7 +1460,8 @@ aas:Referable rdf:type owl:Class ;
 
 ###  http://admin-shell.io/aas/2/0/Referable/parent
 <http://admin-shell.io/aas/2/0/Referable/parent> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to the next referable parent element of the element. Constraint AASd-004: Add parent in case of non-identifiable elements."@en ;
+    rdfs:comment "Reference to the next referable parent element of the element."@en ;
+    skos:note "Constraint AASd-004: Add parent in case of non-identifiable elements."@en ;
     skos:note "This element is used to ease navigation in the model and thus it enables more performant"@en ;
     rdfs:label "has parent"^^xsd:string ;
     rdfs:domain aas:Referable ;
@@ -1572,7 +1580,7 @@ aas:ReferableElements rdf:type owl:Class ;
 
 ###  http://admin-shell.io/aas/2/0/ReferableElements/SUBMODEL_ELEMENT
 <http://admin-shell.io/aas/2/0/ReferableElements/SUBMODEL_ELEMENT> rdf:type aas:ReferableElements ;
-    rdfs:label "SubmodelElement"^^xsd:string ;
+    rdfs:label "Submodel Element"^^xsd:string ;
     skos:note "Submodel Element is abstract, i.e. if a key uses “SubmodelElement” the reference may be a Property, a SubmodelElementCollection, an Operation etc."@en ;
 .
 
@@ -1619,7 +1627,7 @@ aas:ReferenceElement rdf:type owl:Class ;
 aas:RelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     dc:description "A relationship element is used to define a relationship between two referable elements."@en ;
-    rdfs:label "Relationship Element"@en ;
+    rdfs:label "Relationship Element"^^xsd:string ;
 .
 
 ###  http://admin-shell.io/aas/2/0/RelationshipElement/first
@@ -1786,68 +1794,68 @@ iec61360:DataTypeIEC61360 rdf:type owl:Class ;
     ) ;
 .
 
-###  http://admin-shell.io/aas/2/0/DATE
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/DATE
 iec61360:DATE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "date according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:date ;
 .
-###  http://admin-shell.io/aas/2/0/BOOLEAN
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/BOOLEAN
 iec61360:BOOLEAN rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "boolean according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:boolean ;
 .
-###  http://admin-shell.io/aas/2/0/INTEGER_CURRENCY
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/INTEGER_CURRENCY
 iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "integer currency according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/INTEGER_COUNT
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/INTEGER_COUNT
 iec61360:INTEGER_COUNT rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "integer count according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/INTEGER_MEASURE
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/INTEGER_MEASURE
 iec61360:INTEGER_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "integer measure according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/INTEGER_CURRENCY
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/INTEGER_CURRENCY
 iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "real currency according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/REAL_COUNT
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/REAL_COUNT
 iec61360:REAL_COUNT rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "real count according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/REAL_MEASURE
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/REAL_MEASURE
 iec61360:REAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "real measure according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/STRING
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/STRING
 iec61360:STRING rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "string according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/STRING_TRANSLATABLE
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/STRING_TRANSLATABLE
 iec61360:STRING_TRANSLATABLE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "translatable string according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:langString ;
 .
-###  http://admin-shell.io/aas/2/0/RATIONAL_MEASURE
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/RATIONAL_MEASURE
 iec61360:RATIONAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "retional measure according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/RATIONAL
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/RATIONAL
 iec61360:RATIONAL rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "retional according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/TIME
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/TIME
 iec61360:TIME rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "time according to IEC61360"^^xsd:string ;
 .
-###  http://admin-shell.io/aas/2/0/TIMESTAMP
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/TIMESTAMP
 iec61360:TIMESTAMP rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "time stamp according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:dateTime ;
 .
-###  http://admin-shell.io/aas/2/0/URL
+###  http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0/URL
 iec61360:URL rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "url according to IEC61360"^^xsd:string ;
 .
